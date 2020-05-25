@@ -1,0 +1,41 @@
+Cài EC2
+#!/bin/bash
+yum update -y
+yum install -y docker
+service docker start
+chkconfig docker on
+curl -L "https://github.com/docker/compose/releases/download/1.11.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
+
+
+<------------------------------------>
+Docker Images
+- Build image
+$ docker-compose build
+
+- Chạy container
+$ docker-compose up
+
+- Stop
+$ docker-compose stop
+
+- Start lại container
+$ docker-compose start
+
+- Stop và xóa container
+$ docker-compose down
+<------------------------------------>
+Các lệnh xóa đồng loạt
+docker stop $(docker ps -a -q)
+docker rm $(docker ps -a -q)
+docker rmi -f $(docker images -a -q)
+docker-compose up -d
+<----------------------------------->
+docker images
+docker ps -a
+
+
+
+
+
+Nhat_pham Tokyo,Japan
